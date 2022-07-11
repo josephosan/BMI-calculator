@@ -1,22 +1,25 @@
-<form action="" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-placing">
+<div class="image">
+  <h1 class="header-style">Calculate BMI</h1>
+  <form action="" [formGroup]="form" (ngSubmit)="onSubmit(form)" class="form-placing">
 
-  <app-input-field
-    [control]="$any(weight)"
-    placeholder="Your weight(in kg)"
-    type="number"
-    ></app-input-field><br>
-
-  <app-input-field
-    [control]="$any(height)"
-    placeholder="Your height(in cm)"
-    type="number"
-    ></app-input-field><br>
-
-  <app-input-field
-    [control]="$any(age)"
-    placeholder="Your age"
-    type="number"
-    ></app-input-field><br>
-
-  <button class="btn btn-success button-placing" [disabled]="!form.valid">Calculate</button>
-</form>
+    <app-input-field
+      [control]="$any(weight)"
+      placeholder="Your weight(in kg)"
+      type="number"
+      ></app-input-field><br>
+  
+    <app-input-field
+      [control]="$any(height)"
+      placeholder="Your height(in cm)"
+      type="number"
+      ></app-input-field><br>
+  
+    <app-input-field
+      [control]="$any(age)"
+      placeholder="Your age"
+      type="number"
+      ></app-input-field><br>
+  
+    <button class="btn btn-success button-placing" [disabled]="!form.valid">Calculate</button>
+  </form>
+</div>

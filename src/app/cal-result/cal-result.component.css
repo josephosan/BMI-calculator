@@ -1,0 +1,9 @@
+.placing-components {
+  display: grid;
+  grid-template-rows: 2;
+}
+
+.info-styling {
+  margin-top: 2rem;
+  text-align: center;
+}

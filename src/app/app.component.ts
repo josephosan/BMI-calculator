@@ -1,5 +1,7 @@
+import { CalResultComponent } from './cal-result/cal-result.component';
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  calResultNumber: number = 0;
+
+  public constructor(private matDialog: MatDialog) {
+
+  }
+
   form = new FormGroup({
     weight: new FormControl('',
       [Validators.required, Validators.max(300), Validators.min(10)]
@@ -19,11 +27,15 @@ export class AppComponent {
     )
   });
 
-  onSubmit(data: any) {
-
+  onSubmit(data: FormGroup) {
+    this.calResultNumber = 10*(parseInt(data.value.weight)/Math.pow((parseInt(data.value.height)/10), 2));
+    this.matDialog.open(CalResultComponent, {
+      data: this.calResultNumber,
+      height: "20rem",
+      width: "20rem"
+    });
+    data.reset();
   }
-
-
 
   // getters :
 
