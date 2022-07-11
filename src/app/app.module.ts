@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,7 +22,11 @@ import { CalResultComponent } from './cal-result/cal-result.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    RouterModule.forRoot([
+      { path: 'BMI-calculator', component: AppComponent},
+      { path: '', component: AppComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
