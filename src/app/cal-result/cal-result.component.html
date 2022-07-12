@@ -6,5 +6,29 @@
   <div class="alert alert-success info-styling">
     Your BMI result is: {{ result }}
   </div>
+
+
+  <div *ngIf="isTheBMIValid(result)">
+    <div *ngIf="result < 16" class="alert alert-danger">
+      Severe Thinness. You dangrously thin!
+    </div>
+
+    <div *ngIf="result > 17 && result < 18.5" class="alert alert-warning">
+      Moderate Thinness. You are very thin!	
+    </div>
+
+    <div *ngIf="result > 18.5 && result < 25" class="alert alert-success">
+      Normal. You BMI shows me that you are OK:)
+    </div>
+
+    <div *ngIf="result > 25 && result < 30" class="alert alert-warning">
+      Overweight. looks like you need some exercise!
+    </div>
+
+    <div *ngIf="result > 30" class="alert alert-danger">
+      Obese Class. it seems you need to go to the doctor. your health is in danger!!!
+    </div>
+  </div>
   
 </div>
+

@@ -6,19 +6,34 @@
       [control]="$any(weight)"
       placeholder="Your weight(in kg)"
       type="number"
+      [showErrors]="submitClicked"
       ></app-input-field><br>
   
     <app-input-field
       [control]="$any(height)"
       placeholder="Your height(in cm)"
       type="number"
+      [showErrors]="submitClicked"
       ></app-input-field><br>
   
     <app-input-field
       [control]="$any(age)"
       placeholder="Your age"
       type="number"
+      [showErrors]="submitClicked"
       ></app-input-field><br>
+
+      <div class="form-check div-radio-buttons form-group">
+        <div>
+          <input class="form-check-input" type="radio" id="mail" name="radio" value="male" formControlName="radio">
+          <label class="form-check-label" for="mail">Mail</label>
+        </div>
+  
+        <div>
+          <input class="form-check-input" type="radio" id="female" name="radio" value="female" formControlName="radio">
+          <label class="form-check-label" for="female">Female</label>
+        </div>
+      </div>
   
     <button class="btn btn-success button-placing" [disabled]="!form.valid">Calculate</button>
   </form>

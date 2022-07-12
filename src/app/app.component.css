@@ -24,3 +24,10 @@
   padding-bottom: 0;
 
 }
+
+.div-radio-buttons {
+  display: grid;
+  grid-template-rows: 2;
+  margin-bottom: 1rem;
+  color: aliceblue;
+}

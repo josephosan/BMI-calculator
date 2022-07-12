@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  submitClicked: boolean = false;
   calResultNumber: number = 0;
 
   public constructor(private matDialog: MatDialog) {
@@ -17,20 +18,26 @@ export class AppComponent {
 
   form = new FormGroup({
     weight: new FormControl('',
-      [Validators.required, Validators.max(300), Validators.min(10)]
+      [Validators.required, Validators.max(200), Validators.min(40)]
     ),
     height: new FormControl('',
-      [Validators.required, Validators.max(210), Validators.min(50)]
+      [Validators.required, Validators.max(210), Validators.min(100)]
     ),
     age: new FormControl('',
       [Validators.required, Validators.min(10), Validators.max(70)]
+    ), 
+    radio: new FormControl('', 
+      [Validators.required]
     )
   });
 
   onSubmit(data: FormGroup) {
-    this.calResultNumber = 10*(parseInt(data.value.weight)/Math.pow((parseInt(data.value.height)/10), 2));
     this.matDialog.open(CalResultComponent, {
-      data: this.calResultNumber,
+      data: {
+        weight: data.value.weight,
+        height: data.value.height,
+        radio: data.value.radio
+      },
       height: "20rem",
       width: "20rem"
     });

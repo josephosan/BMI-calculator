@@ -13,6 +13,7 @@ export class InputFieldComponent implements OnInit {
   @Input() type: String = 'text';
   @Input() placeholder: String = 'plane text';
   @Input() control: FormControl = new FormControl;
+  @Input() showErrors: boolean = false;
 
 
   ngOnInit(): void {
